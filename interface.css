@@ -1,0 +1,335 @@
+/* disable highlighting with mouse click */
+html{
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select:none;
+	user-select:none;
+	-o-user-select:none;
+	cursor: url('cursor/normal.gif'), auto;
+}
+body
+{
+	/* default font */
+	font-family: Times, "Times New Roman", Serif;
+	
+	/* The background image is controlled in javascript, 
+	where it opens the jpg file same as the name of the page */
+	
+	/* disable scrolls when elements go out of frame */
+	overflow: hidden;
+}
+/* label */	
+label
+{
+	font-weight: bold;
+	color: white;
+	text-shadow:
+	-1px -1px 0 #000,
+	1px -1px 0 #000,
+	-1px 1px 0 #000,
+	1px 1px 0 #000;
+}
+/* inputs */
+input[type="color"]
+{
+	padding: 0;
+}
+select
+{
+	background: #FAFFBF;
+	border-radius: 4px;
+	text-align: center;
+	cursor: url('cursor/point.gif'), auto;
+}
+input[type=text], input[type=email], input[type=password]
+{
+	height: 15px;
+	text-align: center;
+	border: 2px dotted #586072;
+	background: #FAFFBF;
+	border-radius: 4px;
+	cursor: url('cursor/point.gif'), auto;
+	width: 123px;
+	transition: ease-in-out, width .2s ease-in-out;
+}
+/* inputs on focus */
+input[type=text]:focus, input[type=email]:focus, input[type=password]:focus
+{
+	text-align: left;
+	background: lightblue;
+	width: 150px;
+    box-shadow: 0 0 10px #9ecaed;
+}
+/* button */
+.button {
+  border-radius: 10px;
+  background-color: #2774AE;
+  border: 1px solid white;
+  color: #FFFFFF;
+  text-align: center;
+  font-family: Times, Serif;
+  font-size: 14px;
+  padding: 5px;
+  width: 123px;
+  transition: all 0.5s;
+  cursor: url('cursor/point.gif'), auto;
+  margin: 2px;
+  opacity: 1;
+}
+/* button label */
+.button span {
+cursor: url('cursor/point.gif'), auto;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+/* focus: tab select, hover: mouseover */
+.button:focus, .button:hover {
+	background-color: #0C4A90;
+	opacity: 0.75;
+}
+
+.button:focus span, .button:hover span {
+  padding-right: 25px;
+}
+
+.button:focus span:after, .button:hover span:after {
+  right: 0;
+}	
+/* copyright footer on the bottom of the main page */
+#copyright
+{
+	position: fixed;
+	text-align: center;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 3%;
+	background-color: #2774AE;
+	opacity: 0.5;
+}
+/* copyright's link */
+#copyright a
+{
+	cursor: url('cursor/point.gif'), auto;
+	text-decoration: none; /*get rid of underline from link*/
+	color: white; /* set color to always white no matter a:visited */
+}
+/* the container for icons */
+#icon_menu
+{
+	/* size and position */
+	padding-top: 4px;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: auto;
+	text-align: center;
+	/* background color */
+	background: linear-gradient(to bottom, rgba(0, 130, 174, 0.5), rgba(150, 190, 100, 0.5));
+}
+/* icons to open up new windows */
+.icon
+{
+	cursor: url('cursor/point.gif'), auto;
+	/* inverted - icons are toggled off by default */
+	filter: invert(100%);
+	/* set size and float center */
+	width: 2em;
+	height: auto;
+	margin: 0 auto;
+	/* border */
+	background-color: white;
+	padding-right: 6px;
+	padding-left: 6px;
+	border-radius: 5px;
+}	
+/* title header - index.php */
+#title
+{
+	position: relative;
+	text-shadow: 2px 2px 3px blue;
+	text-align: center;
+	font-family: Harrington, Fantasy;
+	font-size: 3em;
+	
+	/* gradient coloring */
+	background: linear-gradient(#dee, #dea);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	
+	/* blinking animation */
+	animation: blink 4s linear 1.5s infinite;
+}
+/* blinking animation */
+@keyframes blink
+{
+	0%
+	{ /*at 0 second, start inverting*/
+	filter: invert(100%);
+	}
+	30%
+	{ /* do nothing */
+	filter: invert(0%);
+	}
+}
+/* windows */
+.window
+{	/* layout for all windows */
+	display: none; /* windows turned off by default */
+	z-index: 100; /* minimum z-index of windows */
+	position: absolute;
+	text-align: center;
+	
+	padding: 14px;
+	padding-top: 5px;
+	padding-bottom: 8px;
+	
+	background: url("bg/night.gif");
+	border: 3px solid #C0C0C0;
+	border-radius: 15px;
+	
+	/* shadow around the edge for different browsers*/
+	-moz-box-shadow: 0 0 40px 5px black;
+	-webkit-box-shadow: 0 0 40px 5px black;
+	box-shadow: 0 0 40px 5px black;
+}
+.window_header
+{
+	color: white;
+	font-weight: bold;
+	text-shadow: 1px 1px gray;
+	font-size: 14px;
+	padding-bottom: 5px;
+	background-image: linear-gradient(to bottom, rgba(190,245,255,0.6), rgba(236,245,255,0), rgba(236,245,255,0), rgba(236,245,255,0), rgba(236,245,255,0));
+	cursor: url('cursor/move.gif'), auto;
+	border-radius: 15px 15px 0px 0px;
+	width: 100%;
+}
+.window_header:hover
+{
+	background-image: linear-gradient(to bottom, rgba(230,230,230,1.0), rgba(230,230,230,0), rgba(230,230,230,0), rgba(230,230,230,0), rgba(230,230,230,0));
+}
+/* individual settings for particular windows */
+#login_menu
+{	/* login window default position */
+	position: relative;
+	margin: 0 auto;
+	width: 260px;
+	height: 260px;
+}
+/* login menu message */
+#login_message
+{
+	position: relative;
+	text-align: center;
+	left: 0px;
+	
+	text-shadow: 1px 1px gray;
+	font-size: 14px;
+	font-weight: bolder;
+	color: white;
+}
+#music_menu
+{
+	/* set default position */
+	left: 15%;
+	top: 10%;
+}
+#album_art
+{
+	cursor: url("cursor/point"), auto;
+	margin: 0 auto;
+	width: 180px;
+	height: 180px;
+	/* default album art */
+	background: url("sound/main.jpg") round;
+	border: 1px solid gray;
+}
+/* profile menu is only for show in this version */
+#profile_menu
+{
+	/* custom size for this window */
+	width: 190px;
+	/* set default position */
+	left: 35%;
+	top: 20%;
+}
+#chat_display
+{
+	cursor: url('cursor/chat.gif'), auto;
+	background: url("bg/paper.jpg") center space;
+	
+	border: 1px solid gray;
+	border-radius: 5px;
+	padding: 6px;
+	
+	/* position and size */
+	text-align: left;
+	position: relative;
+	margin: 0 auto;
+	height: 300px;
+	width: 390px;
+	min-height: 150px;
+	min-width: 250px;
+	max-height: 550px;
+	max-width: 459px;
+
+	/* resizeable settings */
+	resize: both;
+	
+	/* scroll settings */
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+#chat_menu
+{
+	/* use automatic sizing for this window */
+	/* set default position */
+	left: 55%;
+	top: 20%;
+}
+/* the chat form with message input and font settings */
+#chat_form
+{
+	text-align: center;
+	font-weight: bold;
+	color: white;
+}
+/* chat message formatting */
+.name
+{ 	/* user name, not the email */
+	font-family: Times, Serif;
+	color: black;
+	font-size: 13px;
+	font-weight: bold;
+}
+.message
+{	/* font size color, and style is set with user's setting */
+	font-family: Arial, sans-serif;
+	/* enable word-wrap across browsers */
+	white-space: pre-wrap;      /* CSS3 */   
+	white-space: -moz-pre-wrap; /* Firefox */    
+	white-space: -pre-wrap;     /* Opera <7 */   
+	white-space: -o-pre-wrap;   /* Opera 7 */    
+	word-wrap: break-word;      /* IE */
+	
+}
+.time
+{	/* current time's time stamp */
+	position: relative;
+	font-family: Times, Serif;
+	float: right;
+	color: black;
+	font-size: 13px;
+	vertical-align: text-top;
+}
